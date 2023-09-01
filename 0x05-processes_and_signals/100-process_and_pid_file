@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 #bash script process and PID life
-sudo -c "echo $$ > /var/run/myscript.pid"
-remove_file() {
-	rm /var/run/myscript.pid
+sudo bash -c "echo $$ > /var/run/myscript.pid"
+remove() {
+	sudo rm -f /var/run/myscript.pid
 	exit
 }
 while true
 do
 	echo "To infinity and beyond"
 	sleep 2
-	trap 'echo "I hate the kill command" && remove_file' SIGTERM
+	trap 'echo "I hate the kill command" && remove' SIGTERM
 	trap 'echo "Y U no love me?!"' SIGINT
-	trap 'remove_file' SIGQUIT
+	trap 'remove' SIGQUIT
 done
