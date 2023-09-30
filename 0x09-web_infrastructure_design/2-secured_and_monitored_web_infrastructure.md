@@ -1,18 +1,19 @@
-* For every additional element, why you are adding it
-Load Balancer:
+* For every additional element, why you are adding it?
+
+1-Load Balancer:
 Distributes incoming traffic evenly among the servers for load balancing and redundancy.
 
-Web Servers:
+2-Web Servers:
 Host the www.foobar.com website.
 Multiple servers provide redundancy and improve website performance. If one server fails, the others can continue serving traffic.
 
-SSL Certificate:
+3-SSL Certificate:
 Enables HTTPS to encrypt traffic between clients and the web servers to ensure data security.
 
-Three Firewalls :
+4-Three Firewalls :
 Firewall 1 acts as a perimeter firewall while Firewalls 2 and 3 are placed between each web server and the load balancer.
 
-Monitoring clients:
+5-Monitoring clients:
 Collect and send server performance and application metrics to a monitoring service.
 
 * What are firewalls for?
