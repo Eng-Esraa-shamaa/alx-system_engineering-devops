@@ -1,22 +1,8 @@
 #!/usr/bin/env bash
-# Installing Nginx on Server
-sudo wget http://nginx.org/keys/nginx_signing.key
-sudo apt-key add nginx_signing.key
-cd /etc/apt || exit
-deb http://nginx.org/packages/ubuntu focal nginx
-deb-src http://nginx.org/packages/ubuntu focal nginx
-sudo apt-get update
-sudo apt-get install nginx
-Y
-sudo systemctl start nginx.service
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Hello World!" > /etc/nginx/html/index.html
-printf %s "server {
-     listen      80;
-     listen      [::]:80 default_server;
-     root        /etc/nginx/html;
-     index       index.html index.htm;
-}
-" > /etc/nginx/sites-available/default
-sudo service nginx restart 
+# Script to install and configure nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo sed -i 's/listen.*80 default server/listen 80 default_server;\n\tlisten [::]:80 default_server;/' /etc/nginx/sites-available/default
+echo 'Hello World!' > /var/www/html/index.html
+sudo service nginx stop
+sudo service nginx start
