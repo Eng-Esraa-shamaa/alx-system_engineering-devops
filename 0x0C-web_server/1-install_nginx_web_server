@@ -1,18 +1,10 @@
 #!/usr/bin/env bash
-# Install nginx
-# Nginx should be listening on port 80
-
-# Update package lists to get the latest package information
-sudo apt-get update
-
-# Install Nginx with the '-y' option to automatically answer 'yes' to prompts
-sudo apt-get -y install nginx
-
-# Allow HTTP traffic through the firewall for Nginx
-sudo ufw allow 'Nginx HTTP'
-
-# Create a simple HTML file with "Hello, world!" content and place it in the default web directory
-echo "Hello world!" | sudo tee /var/www/html/index.html
-
-# Restart the Nginx service to apply the changes
+# Bash script that Install nginx on your web-01 server and requirements
+sudo apt-get update -y
+sudo apt-get install curl -y
+sudo apt-get install nginx -y
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo sed -i 's/listen 8080 default_server;.*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
+sudo sed -i 's/listen \[::\]:8080 default_server ipv6only=on;.*/listen \[::\]:80 default_server;/' /etc/nginx/sites-enabled/default
+echo "Hello World!" > /var/www/html/index.html
 sudo service nginx restart
