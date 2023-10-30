@@ -3,8 +3,13 @@
 sudo apt-get update -y
 sudo apt-get install curl -y
 sudo apt-get install nginx -y
-sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo sed -i 's/listen 8080 default_server;.*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
-sudo sed -i 's/listen \[::\]:8080 default_server ipv6only=on;.*/listen \[::\]:80 default_server;/' /etc/nginx/sites-enabled/default
-echo "Hello World!" > /var/www/html/index.html
-sudo service nginx restart
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.html
+if pgrep nginx > /dev/null; then
+    killall nginx
+fi
+nginx
+sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
+nginx -s reload
+curl -sI 127.0.0.1 | grep "200 OK"
+service nginx start
