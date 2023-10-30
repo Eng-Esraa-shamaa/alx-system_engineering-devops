@@ -1,24 +1,18 @@
 #!/usr/bin/env bash
-# Script that configures a second web server
-apt update && apt install -y nginx
+# Install nginx
+# Nginx should be listening on port 80
 
-mkdir -p /etc/nginx
-printf  "events {
-	# configuration of connection processing
-}
+# Update package lists to get the latest package information
+sudo apt-get update
 
-http {
-	include mime.types;
+# Install Nginx with the '-y' option to automatically answer 'yes' to prompts
+sudo apt-get -y install nginx
 
-	server {
-		listen 80 default_server;
-		listen [::]:80 default_server;
-		location / {
-			return 200 'Hello World!';
-		}
-	}
+# Allow HTTP traffic through the firewall for Nginx
+sudo ufw allow 'Nginx HTTP'
 
-}
-" > /etc/nginx/nginx.config
+# Create a simple HTML file with "Hello, world!" content and place it in the default web directory
+echo "Hello world!" | sudo tee /var/www/html/index.html
 
-service nginx restart
+# Restart the Nginx service to apply the changes
+sudo service nginx restart
