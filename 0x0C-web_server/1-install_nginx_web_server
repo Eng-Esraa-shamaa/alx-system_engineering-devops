@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 # Installing Nginx on Server
-sudo apt-get update -y && sudo apt-get upgrade -y
-sudo apt-get install -y nginx
+sudo wget http://nginx.org/keys/nginx_signing.key
+sudo apt-key add nginx_signing.key
+cd /etc/apt || exit
+deb http://nginx.org/packages/ubuntu focal nginx
+deb-src http://nginx.org/packages/ubuntu focal nginx
+sudo apt-get update
+sudo apt-get install nginx
+Y
+sudo systemctl start nginx.service
 mkdir /etc/nginx/html
 touch /etc/nginx/html/index.html
 echo "Hello World!" > /etc/nginx/html/index.html
