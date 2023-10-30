@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
 # Installs Nginx with the following configurations:
 #+    Listens on port 80.
 #+    Returns a page containing "Hello World!" when queried
@@ -26,3 +27,19 @@ printf %s "server {
 
 # Restarts the Nginx service to apply the configuration changes.
 service nginx restart
+=======
+# Bash script that Install nginx on your web-01 server and requirements
+sudo apt-get update -y
+sudo apt-get install curl -y
+sudo apt-get install nginx -y
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.html
+if pgrep nginx > /dev/null; then
+    killall nginx
+fi
+nginx
+sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
+nginx -s reload
+curl -sI 127.0.0.1 | grep "200 OK"
+service nginx start
+>>>>>>> 576bcc58c4c7a4abf9d77382c88b145f3d32762b
