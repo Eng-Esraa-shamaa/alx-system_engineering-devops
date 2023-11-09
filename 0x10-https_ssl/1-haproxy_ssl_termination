@@ -2,6 +2,7 @@ global
     maxconn 4096
     user haproxy
     group haproxy
+
 defaults
     mode http
     timeout connect 5s
@@ -14,13 +15,21 @@ defaults
     errorfile 502 /etc/haproxy/errors/502.http
     errorfile 503 /etc/haproxy/errors/503.http
     errorfile 504 /etc/haproxy/errors/504.http
+
 frontend http_front
     bind *:80
     default_backend http_back
+
 frontend www-https
     bind *:443 ssl crt /etc/haproxy/certs/www.esraa.tech.pem
     default_backend webserver
+
 backend http_back
+    balance roundrobin
+    server web-01 34.207.188.239:80 check
+    server web-02 54.174.238.110:80 check
+
+backend webserver
     balance roundrobin
     server web-01 34.207.188.239:80 check
     server web-02 54.174.238.110:80 check
