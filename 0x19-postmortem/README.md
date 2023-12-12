@@ -1,6 +1,7 @@
 <h1>Issue Summary:</h1>
 <h3>Duration:</h3> <p>2 hours, from 9:00 AM to 11:00 AM (EAT)</p>
 <h3>Impact:</h3> <p>Users experienced connectivity issues when attempting to connect to the server, resulting in failed connections and frustration.</p>
+<div><img src = "worry.png" height = 20rem width = 20rem style= "text-align=center"/></div>
 <h3>Root Cause:</h3>
 <p>The inability to connect to the server was due to attempting to access it without using the necessary private key for authentication.
 </p>
