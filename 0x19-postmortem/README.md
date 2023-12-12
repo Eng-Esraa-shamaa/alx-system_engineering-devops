@@ -24,10 +24,10 @@
 <h1>Corrective and Preventative Measures:</h1>
 <p>To avoid similar connectivity issues and streamline future connections:
 </p>
-<h1>Improvements:</h1>
+<h4>1-Improvements:</h4>
 <p>Enhance documentation regarding the authentication process and required credentials.
 </p>
-<h1>Specific Tasks:</h1>
+<h4>2-Specific Tasks:</h4>
 <p>Update and clarify instructions for server access, emphasizing the necessity of the private key.
 </p><p>Implement reminders or notifications within the connection process to ensure proper authentication methods are used.
 </p>
