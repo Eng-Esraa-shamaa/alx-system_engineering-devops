@@ -6,12 +6,12 @@
 </p>
 
 <h1>Timeline:</h1>
-9:00 AM: Issue identified as failure to connect to the server.
-9:15 AM: Engineers initially investigated potential server-side issues, including network configurations and service availability.
-9:30 AM: Continued attempts to connect to the server using various credentials and methods led to no success.
-10:00 AM: Escalated the issue to senior engineers for further investigation.
-10:30 AM: Realized the necessity of using a private key for server authentication after thorough troubleshooting and reviewing system documentation.
-11:00 AM: Successfully connected to the server using the appropriate private key.
+<p>9:00 AM: Issue identified as failure to connect to the server.
+</p><p>9:15 AM: Engineers initially investigated potential server-side issues, including network configurations and service availability.
+</p><p>9:30 AM: Continued attempts to connect to the server using various credentials and methods led to no success.
+</p><p>10:00 AM: Escalated the issue to senior engineers for further investigation.
+</p><p>10:30 AM: Realized the necessity of using a private key for server authentication after thorough troubleshooting and reviewing system documentation.
+</p><p>11:00 AM: Successfully connected to the server using the appropriate private key.</p>
 </br>
 <h1>Root Cause and Resolution:</h1>
 <p>The root cause of the connectivity issue was the failure to use the required private key for server authentication</p>
